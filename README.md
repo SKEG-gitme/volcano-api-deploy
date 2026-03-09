@@ -2,16 +2,30 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+The challenge was to build a high-performance, secure REST API for a dataset of over 1,000 volcanoes. 
+The primary hurdles were implementing JWT authentication, providing OpenAPI (Swagger) documentation, and 
+meeting strict performance requirements for large data retrieval.
 
 ## Description
-TODO - How have you solved the problem?
+I developed a Ruby on Rails API using JWT for secure user sessions and Redis for server-side caching. 
+By wrapping the volcano index in a Rails.cache block, I reduced database load and achieved near-instant 
+response times for the 1,000+ record dataset.
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+Clone & Install: bundle install
+
+Database Setup: bin/rails db:prepare
+
+Start Services: * Start Redis: redis-server --daemonize yes
+
+Start Rails: bin/rails s -p 3001
 
 ## Usage
-TODO - How does it work?
+Authentication: Send a POST request to /login with credentials to receive a JWT.
+
+Data: Use the token to access GET /volcanoes.
+
+Documentation: View the full API specification at [THE_URL]/swagger/swagger.yaml.
 ```
 ./my_project argument1 argument2
 ```
